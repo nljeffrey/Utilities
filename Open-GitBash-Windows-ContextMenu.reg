@@ -1,0 +1,31 @@
+Windows Registry Editor Version 5.00
+
+; This script adds 'Open Git Bash' to the context menu in Windows Explore
+; By default, the script adds the command to 3 different places, see below.
+
+; Folder context menu (right click on folder)
+
+[HKEY_CLASSES_ROOT\*\shell\GitBash]
+@="Open Git Bash"
+"Icon"="C:\\Program Files\\Git\\git-bash.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\GitBash\command]
+@="\"C:\\Program Files\\Git\\git-bash.exe\" \"--cd=%1\""
+
+; Folder root context menu (right click inside folder)
+
+[HKEY_CLASSES_ROOT\Directory\shell\GitBash]
+@="Open Git Bash"
+"Icon"="C:\\Program Files\\Git\\git-bash.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\GitBash\command]
+@="\"C:\\Program Files\\Git\\git-bash.exe\" \"--cd=%1\""
+
+; Desktop context menu (right click on Desktop)
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\GitBash]
+@="Open Git Bash"
+"Icon"="C:\\Program Files\\Git\\git-bash.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\GitBash\command]
+@="\"C:\\Program Files\\Git\\git-bash.exe\" \"--cd=%v.\""
